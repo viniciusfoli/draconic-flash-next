@@ -1,66 +1,105 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// /src/app/page.js
+"use client"; // ESSENCIAL: Permite usar hooks (estado e efeitos)
+
+import { useState, useEffect } from "react";
+import Image from "next/image"; // Componente para otimização de imagens
+import Script from "next/script"; // Componente para scripts externos (ion-icons)
 
 export default function Home() {
+  // O estado 'light' substitui a manipulação direta do DOM
+  // Começa como 'true' porque o seu index.html original começava com class="light"
+  const [isLightMode, setIsLightMode] = useState(true); 
+
+  // Função que substitui toggleMode() do script.js
+  const toggleMode = () => {
+    setIsLightMode(prev => !prev);
+  };
+
+  // Valores dinâmicos
+  const avatarSrc = isLightMode ? "/assets/avatar-light.png" : "/assets/avatar.png";
+  const avatarAlt = isLightMode ? "Foto de perfil no modo light" : "Foto de perfil no modo dark";
+
+  // Hook que substitui a parte do script.js que muda a classe no <html>
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const htmlElement = document.documentElement;
+      
+      if (isLightMode) {
+        htmlElement.classList.add("light");
+      } else {
+        htmlElement.classList.remove("light");
+      }
+    }
+  }, [isLightMode]);
+  
+  // O JSX substitui a estrutura do index.html
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <div id="container">
+        <div id="profile">
+          <Image
+            src={avatarSrc}
+            alt={avatarAlt}
+            width={112} 
+            height={112} 
+            priority 
+          />
+          <p>@DraconicBlaze</p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+
+        {/* LIGAÇÃO COM O NOVO COMPORTAMENTO: onClick chama a função React */}
+        <div id="switch" onClick={toggleMode}>
+          <button></button>
+          <span></span>
+        </div>
+
+        <ul>
+          <li>
+            {/* Link para a nova página de proposta */}
+            <a href="/proposta">Proposta do Jogo</a> 
+          </li>
+          <li>
+            <a href="#">Apoiar</a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              Ultimas Noticias de Firestone
+            </a>
+          </li>
+          <li>
+            <a href="#">Ultimas Atualizações</a>
+          </li>
+        </ul>
+
+        <div id="social-links">
+          <a href="http://github.com" target="_blank">
+            <ion-icon name="logo-github"></ion-icon>
           </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+          <a href="http://instagram.com" target="_blank">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a href="http://youtube.com" target="_blank">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+          <a href="http://linkedin.com" target="_blank">
+            <ion-icon name="logo-linkedin"></ion-icon>
           </a>
         </div>
-      </main>
-    </div>
+
+        <footer>Feito com ♥</footer>
+      </div>
+
+      {/* Scripts dos Ícones */}
+      <Script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        strategy="lazyOnload"
+      />
+      <Script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+        strategy="lazyOnload"
+      />
+    </>
   );
 }

@@ -1,0 +1,129 @@
+/* Conteúdo do seu style_proposta.css */
+body {
+    /* O layout.js já remove margens, mas é bom manter a centralização de texto */
+    margin: 0;
+    padding: 0 20px; 
+    text-align: left; 
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.image-container { 
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    max-width: 40%; 
+    height: auto; 
+}
+
+p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* --- Estilos para a Seleção de Raça --- */
+
+#race-selection-section {
+    margin-top: 60px;
+    padding-bottom: 60px; /* Adiciona espaço na parte inferior */
+    width: 100%;
+    /* Centraliza o conteúdo da seção */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Container que segura os 3 cards lado a lado */
+.race-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    justify-content: center;
+    gap: 20px; /* Espaço entre os cards */
+    margin-bottom: 40px;
+}
+
+/* O "Card Board" da raça (o botão) */
+.race-card {
+    /* Define o estilo de fundo do seu Linktree para o Card Board */
+    background: var(--surface-color); 
+    border: 1px solid var(--strole-color);
+    border-radius: 8px;
+    padding: 10px;
+    width: 160px; /* Largura fixa para cada card */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.race-card h3 {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* Estilo para o card quando está selecionado */
+.race-card.selected {
+    border-color: var(--text-color); /* Borda mais forte ou da cor do texto */
+    box-shadow: 0 0 15px var(--highlight-color); /* Efeito de brilho */
+    transform: scale(1.05); /* Pequeno zoom */
+}
+
+.race-card:hover {
+    background: var(--surface-color-hover);
+}
+
+/* Estilos para a caixa de descrição (simulando um Iframe/Fichinha de RPG) */
+#race-description-box {
+    background: var(--surface-color); 
+    border: 2px solid var(--strole-color);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 700px; /* Largura máxima */
+    width: 90%;
+    margin-top: 30px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px); /* Mantém o efeito semi-transparente */
+}
+
+.description-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.description-text {
+    /* Garante que o texto dentro da descrição não tenha largura máxima desnecessária */
+    max-width: none;
+    margin: 0;
+    text-align: justify; /* Alinhamento justificado para o texto de RPG */
+}
+
+/* Estilos para as imagens dentro dos cards */
+.race-card img {
+    border-radius: 4px; /* Pequeno arredondamento nas imagens */
+    /* Remove a regra de max-width anterior para não conflitar com a imagem de arte conceitual */
+    max-width: 100%; 
+    height: auto; 
+}
+
+/* Certifique-se de que a imagem conceitual original não seja afetada: */
+.image-container img {
+    max-width: 70%; 
+}
