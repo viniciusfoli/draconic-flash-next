@@ -3,6 +3,8 @@
 
 import Image from "next/image";
 import { useState } from "react"; // Importar useState
+// >>> Adicione a importação do Link do Next.js <<<
+import Link from "next/link";
 import "./style_proposta.css"; 
 
 // --- 1. ESTRUTURA DE DADOS DAS RAÇAS (FÁCIL DE EXPANDIR) ---
@@ -22,7 +24,7 @@ const RACES = [
   {
     id: 'chi_rath',
     name: 'Chi’rath',
-    imageSrc: '/assets/races/Shivaratri.png', // *Você precisará criar essa imagem*
+    imageSrc: '/assets/races/Leela_Priya.jpg', // *Você precisará criar essa imagem*
     description: 'Os Chi’rath são seres graciosos, ligados à natureza oculta da noite. sabios e guerreiros ferozes como piratas. Suas habilidades como espadachins e monjes são dignas de elogios em varios planetas, preferindo mais a noite do que o dia são misticos que culturam a noite.',
   },
 ];
@@ -95,6 +97,14 @@ export default function PropostaPage() {
             
         </div>
         {/* --- FIM NOVO CONTEÚDO --- */}
+        {/* NOVO BOTÃO DE VOLTAR */}
+        <div id="back-button-container">
+             {/* O componente Link do Next.js faz a navegação interna sem recarregar a página */}
+            <Link href="/" className="back-button">
+              ← Voltar para a Página Inicial
+            </Link>
+        </div>
+        {/* FIM NOVO BOTÃO */}
     </main>
   );
 }

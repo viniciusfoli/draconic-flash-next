@@ -62,7 +62,7 @@ export default function Home() {
             <a href="#">Apoiar</a>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <a href="/noticias"> 
               Ultimas Noticias de Firestone
             </a>
           </li>
