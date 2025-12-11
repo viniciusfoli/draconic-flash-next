@@ -6,6 +6,7 @@ import Image from "next/image";
 import "./noticias.css";
 // Se você criar um CSS específico para notícias (ex: noticias.css), importe aqui.
 // Por enquanto, usaremos os estilos globais.
+export const revalidate = 3600; // Define o tempo de revalidação em segundos (aqui, 1 hora)
 
 export const metadata = {
     title: "Notícias de Firestone - DRACONIC FLASH",

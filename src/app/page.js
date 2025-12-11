@@ -59,16 +59,16 @@ export default function Home() {
             <a href="/proposta">Proposta do Jogo</a> 
           </li>
           <li>
-            <a href="#">Apoiar</a>
+            <a href="/apoie">Apoiar</a>
           </li>
           <li>
             <a href="/noticias"> 
               Ultimas Noticias de Firestone
             </a>
           </li>
-          <li>
+          {/*<li>
             <a href="#">Ultimas Atualizações</a>
-          </li>
+          </li>*/}
         </ul>
 
         <div id="social-links">
