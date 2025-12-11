@@ -1,0 +1,139 @@
+/* ================================================= */
+/* 1. VARIÁVEIS E REGRAS GERAIS */
+/* ================================================= */
+
+/* Define cores adicionais ou reusa as existentes */
+:root {
+    /* Roxo de destaque (usado no tema dark) */
+    --highlight-color-light: #C084FC; 
+    /* Cor de fundo para o bloco de texto (simula papel/fundo do artigo) */
+    --article-background: rgba(0, 0, 0, 0.6); 
+    /* Cor de texto para corpo */
+    --body-text-color: #E0E0E0; 
+    /* Linha divisória translúcida */
+    --divider-line: rgba(255, 255, 255, 0.2); 
+}
+
+/* O container principal da página de notícias */
+#noticias-container {
+    max-width: 900px; /* Limita a largura do jornal online */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left; /* Alinhamento geral do texto */
+}
+
+/* Título principal da página */
+#noticias-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-color); /* Branco/Preto dependendo do tema */
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--divider-line);
+}
+
+/* Estilo do botão de voltar */
+.back-button {
+    background: var(--surface-color); 
+    border: 1px solid var(--strole-color);
+    /* ... (Adicione os estilos definidos anteriormente, ou remova os inline) */
+}
+
+
+/* ================================================= */
+/* 2. ESTRUTURA E ESTILO DOS ARTIGOS (Corpo do Texto) */
+/* ================================================= */
+
+.noticia-artigo {
+    /* Fundo: sobreposição translúcida */
+    background: var(--article-background); 
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    /* Borda sutil para dar o toque de fichinha de RPG (opcional) */
+    border: 1px solid var(--divider-line); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.noticia-artigo h2 {
+    /* Título principal do artigo */
+    font-family: 'Montserrat', sans-serif; /* Exemplo de fonte sem serifa */
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-align: center; /* Centralizado para o título principal */
+}
+
+.noticia-artigo p {
+    font-family: 'Roboto', sans-serif; /* Exemplo de fonte com boa legibilidade */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--body-text-color);
+    margin-bottom: 15px;
+}
+
+.data-publicacao {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--highlight-color-light); /* Cor de destaque (lilas-claro) */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ================================================= */
+/* 3. ESTILO DE IMAGENS */
+/* ================================================= */
+
+.noticia-imagem-container {
+    display: flex;
+    justify-content: center; /* Centraliza a imagem */
+    margin: 20px 0;
+}
+
+.noticia-imagem-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    /* Sombra suave ou borda luminosa (sombra roxa) */
+    box-shadow: 0 0 10px var(--highlight-color-light); 
+}
+
+/* Linha divisória horizontal (hr) */
+.noticia-artigo hr {
+    border: none;
+    height: 1px;
+    background-color: var(--divider-line);
+    margin: 30px 0;
+}
+
+/* ================================================= */
+/* 4. LAYOUT DE COLUNA (Desktop/Tablet) */
+/* ================================================= */
+
+@media (min-width: 768px) {
+    
+    /* 1. Regra para a reportagem principal (o primeiro <article> - Título GIGANTE) */
+    .noticia-artigo:first-of-type h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    /* 2. NOVO/CORREÇÃO: Regra para TÍTULOS DE ARTIGOS SECUNDÁRIOS */
+    /* Esta regra é mais específica e garante o tamanho menor (1.5rem) */
+    .secondary-articles-container .noticia-artigo h2 {
+        font-size: 1.5rem; /* <<< ESTE É O TAMANHO DE TÍTULO DE COLUNA */
+        text-align: left; /* Alinha o título à esquerda, como em coluna */
+        border-bottom: 2px solid var(--divider-line);
+        padding-bottom: 10px;
+    }
+    
+    /* Container para os artigos secundários para layout de colunas */
+    .secondary-articles-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Duas colunas */
+        gap: 30px;
+        margin-top: 50px;
+    }
+}

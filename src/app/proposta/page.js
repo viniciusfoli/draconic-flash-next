@@ -27,6 +27,25 @@ const RACES = [
     imageSrc: '/assets/races/Leela_Priya.jpg', // *Você precisará criar essa imagem*
     description: 'Os Chi’rath são seres graciosos, ligados à natureza oculta da noite. sabios e guerreiros ferozes como piratas. Suas habilidades como espadachins e monjes são dignas de elogios em varios planetas, preferindo mais a noite do que o dia são misticos que culturam a noite.',
   },
+
+  {
+    id: 'ogro',
+    name: 'Ogro(a)',
+    imageSrc: '/assets/races/Zevulun.png', // Verifique este caminho!
+    description: 'Os Ogros são humanoides gigantescos, famosos por sua força bruta e resistência inigualável. Embora vistos como selvagens por muitos, eles possuem uma cultura complexa de honra e combate. São a linha de frente perfeita para qualquer batalha.',
+  },
+  {
+    id: 'elfo',
+    name: 'Elfo(a)',
+    imageSrc: '/assets/races/Ximena.png', // Verifique este caminho!
+    description: 'Elfos e Elfas são seres de longa vida e graça natural, conectados profundamente com a magia da natureza e das florestas. Valorizam o conhecimento, a arte e a tradição. São mestres em arco e flecha e na magia elemental.',
+  },
+  {
+    id: 'duende',
+    name: 'Duende',
+    imageSrc: '/assets/races/Gretel_Rau.png', // Verifique este caminho!
+    description: 'Os Duendes são ágeis, astutos e incrivelmente rápidos. Embora pequenos, eles compensam com inteligência e uma habilidade natural para armadilhas e engenharia simples. São excelentes batedores e caçadores de tesouros.',
+  },
 ];
 // -----------------------------------------------------------------
 
